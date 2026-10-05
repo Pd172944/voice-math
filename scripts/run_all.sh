@@ -20,9 +20,10 @@ if [ "${SKIP_REAL:-0}" != "1" ]; then
 fi
 step "6 build + validate dataset";    [ -d data/processed/mathspeech ] || python scripts/build_dataset.py; python scripts/validate_dataset.py
 step "7 baseline evaluation";         python scripts/evaluate.py --systems zeroshot
-step "8 fine-tune (canonical targets)"; [ -f artifacts/model/mathspeech-canonical/training_summary.json ] || python scripts/train.py --target_mode canonical --output_dir artifacts/model/mathspeech-canonical --epochs "${EPOCHS:-3}"
-step "8b ablation (spoken targets)";  [ -f artifacts/model/mathspeech-spoken/training_summary.json ] || python scripts/train.py --target_mode spoken --output_dir artifacts/model/mathspeech-spoken --epochs 1 --run_name spoken-ablation
-step "9 evaluation";                  python scripts/evaluate.py --systems zeroshot,canonical,spoken_ft
+step "8 fine-tune Qwen3-ASR (canonical LaTeX targets)"; [ -f artifacts/model/qwen3asr-canonical/training_summary.json ] || python scripts/train.py --target_mode canonical --output_dir artifacts/model/qwen3asr-canonical --epochs "${EPOCHS:-3}"
+if [ "${SPOKEN_ABLATION:-0}" = "1" ]; then step "8b ablation (spoken targets)"; [ -f artifacts/model/qwen3asr-spoken/training_summary.json ] || python scripts/train.py --target_mode spoken --output_dir artifacts/model/qwen3asr-spoken --epochs 1 --run_name qwen3asr-spoken-ablation; fi
+step "9 evaluation (test, test_hard, test_comp, test_ood)"; python scripts/evaluate.py --systems zeroshot,canonical
+step "9b real-speech probe (eval-only)"; python scripts/eval_external.py || echo "[warn] external probe skipped"
 step "10 demo examples";              python scripts/generate_demo.py
 step "11 report";                     python scripts/generate_report.py
 echo; echo "Done. Report: artifacts/evaluation/report.html   Demo: python app/app.py"

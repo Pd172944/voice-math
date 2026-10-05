@@ -3,17 +3,17 @@
 import json, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from src.env import DATA_DIR, OUTPUT_DIR
+from src.env import DATA_DIR, OUTPUT_DIR, ROOT
 from src.normalization.canonicalize import valid_latex
 from src.evaluation.metrics import norm_latex
 
 
 def validate():
     man = DATA_DIR / "manifests"
-    splits = {n: [json.loads(l) for l in open(man / f"mathspeech_{n}.jsonl")] for n in ("train", "validation", "test", "test_hard") if (man / f"mathspeech_{n}.jsonl").exists()}
+    splits = {n: [json.loads(l) for l in open(man / f"mathspeech_{n}.jsonl")] for n in ("train", "validation", "test", "test_hard", "test_comp", "test_ood") if (man / f"mathspeech_{n}.jsonl").exists()}
     errs, report = [], {}
     for n, rows in splits.items():
-        bad_audio = sum(1 for r in rows if not Path(r["audio"]).exists())
+        bad_audio = sum(1 for r in rows if not (ROOT / r["audio"]).exists())
         bad_dur = sum(1 for r in rows if not (0.3 < r["duration"] < 30))
         bad_latex = sum(1 for r in rows if r["synthetic"] and not valid_latex(r["target_text"]))
         no_lic = sum(1 for r in rows if not r.get("license") or not r.get("source"))
@@ -22,7 +22,7 @@ def validate():
         for k in ("bad_audio", "bad_duration", "invalid_latex", "missing_license_or_source"):
             if report[n][k]: errs.append(f"{n}: {k}={report[n][k]}")
     tr = {norm_latex(r["target_text"]) for r in splits["train"]}
-    for n in ("validation", "test", "test_hard"):
+    for n in ("validation", "test", "test_hard", "test_comp", "test_ood"):
         if n in splits:
             leak = sum(norm_latex(r["target_text"]) in tr for r in splits[n]); report[n]["train_overlap"] = leak
             if leak: errs.append(f"{n}: {leak} examples share canonical LaTeX with train")

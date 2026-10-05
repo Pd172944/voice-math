@@ -8,101 +8,100 @@
 
 ![architecture](docs/architecture.svg)
 
-| Spoken | Generic Whisper (large-v3-turbo) | **MathSpeech** |
-|---|---|---|
-| "the integral from zero to infinity of x to the sixth d x equals one third" | `That is the integral from 0 to infinity of x to the 6th dx equals 1 third.` | `\int_0^\infty x^6\,dx = \frac{1}{3}` |
-| "for all n in Q, n squared is greater than or equal to zero" | `For all n in q n squared is greater than or equal to zero.` | `\forall n \in \mathbb{Q}, \; n^2 \geq 0` |
-| "A bold v sub i equals lambda sub i bold v sub i" | `A bold V sub i equals lambda sub i bold V sub i.` | `A\mathbf{v}_i = \lambda_i\mathbf{v}_i` |
-| "x is distributed as normal mu sigma squared" | `x is distributed as normal mu sigma squared.` | `X \sim \mathcal{N}(\mu, \sigma^2)` |
-| "the inner product of bold x and bold y" | `the inner product of Bold X and Bold Y.` | `\langle \mathbf{x}, \mathbf{y} \rangle` |
+**v2 (this version):** model upgraded from Whisper to **Qwen3-ASR-1.7B** (released June 2026, Apache-2.0, Transformers-native), a **compositional grammar** + extra voices/augmentation for generalization, and an **on-the-fly LaTeX → Unicode text renderer** so output looks right even without a TeX engine.
 
-More (with audio players and rendered equations): `artifacts/evaluation/report.html`; 18 curated pairs in `artifacts/demo/examples.json`.
+| Spoken | Generic ASR (Qwen3-ASR zero-shot) | **MathSpeech** (LaTeX) | **MathSpeech** (plain text, rendered on the fly) |
+|---|---|---|---|
+| "the limit as h goes to zero of the fraction f of x plus h minus f of x over h end fraction equals f prime of x" | `The limit as h goes to zero of the fraction f of x plus h …` | `\lim_{h \to 0} \frac{f(x + h) - f(x)}{h} = f'(x)` | `lim_(h→0) (f(x + h) − f(x))/h = f′(x)` |
+| "the two norm of bold x squared equals the sum from i equals one to n of x sub i squared" | `The two norm of bold x squared equals the sum …` | `\|\mathbf{x}\|_2^2 = \sum_{i=1}^n x_i^2` | `‖𝐱‖₂² = ∑ᵢ₌₁ⁿ xᵢ²` |
+| "C H four plus two O two yields C O two plus two H two O" | `CH₄ + 2O₂ yields CO₂ + 2H₂O.` | `\mathrm{CH_4} + 2 \mathrm{O_2} \to \mathrm{CO_2} + 2 \mathrm{H_2O}` | `CH₄ + 2 O₂ → CO₂ + 2 H₂O` |
+| "theta is updated to theta minus alpha nabla sub theta J of theta" | `Theta is updated to theta minus alpha nabla sub theta …` | `\theta \leftarrow \theta - \alpha \nabla_\theta J(\theta)` | `θ ← θ − α∇_θJ(θ)` |
+| "the closed integral of vector B dot d vector l equals mu sub zero I" | `The closed integral of vector B dot d vector l …` | `\oint \vec{B} \cdot d\vec{l} = \mu_0 I` | `∮ B⃗ · dl⃗ = μ₀ I` |
+
+All five are from the hand-written **OOD test set** (never trained on). More, with audio players: `artifacts/evaluation/report.html`; 24 curated pairs in `artifacts/demo/examples.json`.
 
 ## What was built
 
-* **Model:** `openai/whisper-large-v3-turbo` (809 M, MIT) + LoRA (r=32, 29.6 M trainable params, incl. the output head). Fallback: `openai/whisper-small.en`.
-  *Why Whisper here:* best-in-class English ASR, native HF/PEFT support, byte-level BPE tokenizer that can spell LaTeX, permissive licence, fine-tunes in <1 h on one H100.
-  Qwen2-Audio / NeMo were considered; they are heavier (7 B) or need a separate toolchain for a 5-day prototype.
-* **Data:** 14,917 train / 184 val / 433 test / 54 hard-test synthetic clips (13.8 h train) — 10 domains (algebra, calculus, linear algebra, probability, set theory, analysis, ML, physics, chemistry, CS),
-  68 grammar templates, 8 train voices + 2 held-out voices (Kokoro-82M). **LaTeX is the source of truth**; the spoken form is generated from the same draws. Splits are by LaTeX hash (verified: zero canonical-LaTeX overlap with train),
-  and the *hard* test set uses 9 grammar templates never seen in training, spoken by unseen voices.
-* **Normalization layer** (`src/normalization/`): lexicon + structured parser (sub/superscripts, fractions, integrals, sums, limits, derivatives, partials, norms, probability, vectors…) + context gating
-  (`"the pie is on the table"` stays text, `"pi is approximately three point fourteen"` → `\pi \approx 3.14`) + validity filters + optional LLM fallback (OpenRouter; off by default). 95% round-trip on its own grammar's phrasing.
-* **Real audio pipeline** (`scripts/build_real_corpus.py`): HF streaming → ASR → math detection → canonicalize → deterministic filters, with full provenance (source, licence, ASR text, canonical, confidence, method, transform). Rejected rows are kept with reasons.
-* **Demo** (`app/app.py`, Gradio): upload/record audio → generic ASR, generic+rules, MathSpeech LaTeX and a rendered equation; example buttons from the held-out set.
-* **Tracking:** W&B project `prithvidixit05-/voiceTrain` (runs `canonical-v3-headlora`, `spoken-ablation`, `canonical-v2`).
+* **Model:** `Qwen/Qwen3-ASR-1.7B-hf` (Qwen3-Omni audio encoder + Qwen3 LLM decoder) + LoRA r=32 on the LLM attention/MLP, audio-encoder attention and projector (41 M trainable of 2.08 B). Fallback: `Qwen3-ASR-0.6B-hf`; previous-generation baseline: Whisper large-v3-turbo.
+  *Why:* recent (June 2026), Apache-2.0, fully Transformers/PEFT-native, an LLM decoder whose tokenizer and prior already know LaTeX (Whisper's BPE even *suppresses* `\ { } ^ _` by default — v1 had to work around that), and ~25 min to fine-tune on one H100. Other recent candidates considered: Granite-Speech-4.1-2B, Cohere-Transcribe-03-2026 (gated), Voxtral, Parakeet/Canary (NeMo toolchain), MOSS-Transcribe.
+* **Data (27,243 train clips, 35.9 h; 442 val; four test sets):**
+  * *68 hand-written templates* across 10 domains (algebra, calculus, linear algebra, probability, set theory, analysis, ML, physics, chemistry, CS) — 15.6 k clips;
+  * *compositional random trees* (`src/data/compose.py`): nested powers/fractions/roots/functions/big operators/matrices/probability, ML and physics notation with unambiguous spoken forms ("the fraction … over … end fraction", "the quantity … end quantity") — 13 k clips;
+  * *Kokoro-82M TTS*, 14 train voices + 2 held-out voices, speed 0.85–1.15, ±7 % pitch/tempo shift, and on-the-fly gain/noise augmentation during training;
+  * LaTeX is the source of truth; splits are by hash of the canonical LaTeX and **validated leak-free** (`scripts/validate_dataset.py`).
+* **Four test sets that measure different things:** `test` (unseen expressions, known template families) · `test_comp` (unseen random compositions) · `test_hard` (9 template families never trained on, unseen voices) · `test_ood` (**64 hand-written expressions with natural phrasing, written before the compositional grammar, unseen voices; 3 near-duplicates of training items were found by the validator and replaced**).
+* **Normalization layer** (`src/normalization/`): lexicon + structured parser + context gating (`"the pie is on the table"` stays text; `"pi is approximately three point fourteen"` → `\pi \approx 3.14`) + validity filters + optional LLM fallback. Used as baseline C.
+* **LaTeX → text on the fly** (`src/rendering/latex_to_text.py`): Greek, Unicode super/subscripts (`x²`, `θₜ₊₁`, `∑ᵢ₌₁ⁿ`), fractions (`½`, `∂f/∂x`, `(x + 1)/(x − 1)`), roots, accents (`x̂`, `x̄`, `B⃗`), blackboard/bold/script fonts (`ℝⁿ`, `𝐱`, `𝒩`), matrices, big operators, relations/arrows. No TeX engine; unknown commands are kept verbatim. It is used by the demo (separate "Plain text" output), `scripts/transcribe.py`, the report and `MathTranscriber`. All 28,716 corpus targets render with no leftover LaTeX commands (checked; also `tests/test_rendering.py`).
+* **Real audio pipeline** (`scripts/build_real_corpus.py`): HF streaming → ASR → math detection → canonicalize → deterministic filters, with provenance. **Yielded 0 accepted clips this run** (People's Speech is almost all civic audio; 1,500 prefiltered clips all rejected, correctly). `AAAI2025/MathSpeech` (real human math speech, licence undeclared) is used **only as an evaluation probe**.
+* **Tracking:** W&B `prithvidixit05-/voiceTrain` (`qwen3asr-canonical-v1` training; `eval-Qwen3-ASR-1.7B-hf` summary metrics).
 
 ## Results (single H100, GPU 0)
 
-Systems — **A** generic Whisper (raw) · **C** generic Whisper + rule normalizer · **B** MathSpeech (direct LaTeX) · **D** ablation: Whisper LoRA on *spoken* text + the same rule normalizer.
+Systems — **A** generic Qwen3-ASR (raw) · **C** A + rule normalizer · **B** MathSpeech (direct LaTeX) · *Whisper v1* = previous version (Whisper-large-v3-turbo + LoRA, 15.6 k clips).
 
-**Test** (433 unseen expressions, held-out voices included; same grammar families as training)
+| split (n) | metric | A generic | C generic+rules | **B MathSpeech** | Whisper v1 |
+|---|---|---|---|---|---|
+| **test** (433) unseen expressions | exact match | 0.000 | 0.480 | **0.975** | 0.912 |
+| | LaTeX token edit ↓ | 2.816 | 0.246 | **0.003** | 0.012 |
+| **test_comp** (416) unseen compositions | exact match | 0.000 | 0.219 | **0.940** | – |
+| | token edit ↓ | 2.901 | 0.345 | **0.004** | – |
+| **test_ood** (128) hand-written, natural phrasing | exact match | 0.000 | 0.406 | **0.797** | – |
+| | token edit ↓ | 2.968 | 0.420 | **0.044** | – |
+| **test_hard** (54) unseen templates | exact match | 0.000 | **0.556** | 0.481 | 0.111 |
+| | token edit ↓ | 2.652 | 0.191 | 0.202 | 0.368 |
+| **real human speech** (1,101, eval-only) | token edit ↓ | 2.166 | 0.527 | **0.264** | 0.357 |
+| | exact (loose labels) | 0.000 | 0.084 | **0.305** | 0.172 |
 
-| metric | A generic | C generic+rules | **B MathSpeech** | D spoken-LoRA+rules |
-|---|---|---|---|---|
-| normalized exact match | 0.000 | 0.503 | **0.912** | 0.901 |
-| LaTeX token edit distance ↓ | 2.729 | 0.420 | **0.012** | 0.068 |
-| symbol acc | 0.001 | 0.941 | 0.989 | 0.992 |
-| Greek acc | 0.000 | 0.943 | 0.977 | 0.989 |
-| operator acc | 0.001 | 0.978 | 0.997 | 0.999 |
-| sub/superscript acc | 0.000 | 0.901 | 0.987 | 0.986 |
-| bracket acc | 0.000 | 0.750 | 1.000 | 0.986 |
-| ordinary WER vs spoken text | 0.117 | – | – | 0.003 |
+Diagnostic accuracies for B: Greek 0.99–1.00, operators 0.99–1.00, brackets 0.98–1.00, sub/superscripts 0.96–0.99, symbols 0.98–1.00 on test/test_comp/test_ood (full tables in `artifacts/report.md`). Ordinary WER of the generic model against the spoken words is 0.055–0.14 (mostly digits-vs-words and capitalization).
 
-**Hard test** (54 clips; *unseen grammar templates*, unseen voices)
+**Training:** LoRA r=32/α=64 · lr 1e-4 cosine, 100 warm-up · 3 epochs · batch 16×2 accumulation · bf16 autocast · augmentation p=0.5 · seed 1234 · **2,550 steps, 25.5 min on one NVIDIA H100 80GB**, best validation loss 0.0122.
 
-| metric | A | C | B MathSpeech | D |
-|---|---|---|---|---|
-| exact match | 0.000 | 0.426 | 0.111 | **0.444** |
-| token edit ↓ | 2.674 | 0.318 | 0.368 | **0.192** |
-
-**Real human speech, evaluation only** (AAAI2025/MathSpeech, 1,101 YouTube-sourced clips, labels cleaned; model never trained on any real audio)
-
-| | A generic | C generic+rules | B MathSpeech |
+### What improved generalization (v1 → v2)
+| | test | test_hard | real speech (token edit) |
 |---|---|---|---|
-| token edit ↓ | 2.010 | 0.654 | **0.357** |
-| script acc | 0.000 | 0.581 | **0.750** |
-| symbol acc | 0.011 | **0.713** | 0.686 |
-| exact (loose labels) | 0.000 | 0.148 | **0.172** |
+| v1: Whisper + LoRA, templates only | 0.912 | 0.111 | 0.357 |
+| v2: Qwen3-ASR + LoRA, + compositional data, more voices, augmentation | **0.975** | **0.481** | **0.264** |
 
-(Generic Whisper WER on those clips vs the spoken transcript: 0.314, including hallucinated repetition loops such as "by by by …".)
+Unseen-template accuracy rose 4×. I did not run a clean model-only vs data-only ablation (the Whisper model has no way to use the compositional data as well), so the credit is shared between the LLM-decoder prior and the new data.
 
-**Training**: LoRA r=32/α=64 on q,k,v,out,fc1,fc2 + `proj_out`; lr 1.5e-4 cosine, 100 warm-up, 4 epochs, batch 16×2 accumulation, bf16 autocast, seed 1234.
-1,864 steps, **39 min** on one NVIDIA H100 80GB, best val loss 0.032. Spoken-target ablation: 2 epochs, 21 min.
+### Honest reading
+1. **Large, consistent gain over generic ASR**, including on hand-written OOD speech (0.797 vs 0.406 for generic+rules) and on real human recordings.
+2. **Still not fully compositional.** On entire template families never seen in training, the rule-based normalizer is still slightly better by exact match (0.556 vs 0.481), though MathSpeech has perfect Greek/script/bracket accuracy there. Residual failures concentrate in multi-symbol constructs (see the report's error analysis).
+3. **Many OOD "errors" are unobservable or conventions**, not acoustic mistakes: `bold A` vs `bold a` and `E[X]` vs `E[x]` sound identical; `\det(A) \cdot \det(B)` vs juxtaposition; `\dim \ker(A)` vs `\dim(\ker(A))`. Exact match counts them as errors; ML and linear algebra are the weakest domains (n=12–16 each, so per-domain numbers are anecdotal).
+4. **C is not independent of the data generator**: the rule normalizer was written against the same family of phrasings, so it is favoured on synthetic data. The real-speech probe (labels in a different style, so absolute numbers are low) is the fairer comparison.
+5. The LLM-written-paraphrase idea from the spec was **not run**: the supplied OpenRouter key returned HTTP 402 (no credit). The code path exists (`src/normalization/llm_normalizer.py`) but is off.
 
-### Honest reading of the results
+## Use
 
-1. **The task is learnable and the gain is large where the training grammar covers the structure.** Direct canonical fine-tuning roughly halves the remaining error versus generic ASR + hand-written rules (0.50 → 0.91 exact; token edit 0.42 → 0.012) and also transfers partly to real human speech it never saw.
-2. **It does not generalize to new structures.** On held-out templates the direct model collapses (0.11 exact) while "fine-tune ASR on words, then normalize" (D) holds up (0.44) — the normalizer supplies compositional structure the LoRA model has only memorized from 68 templates. Answer to the "direct vs. ASR + normalizer" question for this prototype: direct is best in-distribution; the two-stage system is more robust. A real fix is far more diverse text (LLM-written spoken math, real lectures).
-3. **Baseline C is not independent of the data generator.** I wrote the rule normalizer against the same family of spoken phrasings, so C (and D) are favored on synthetic data; the real-speech probe is the fairer comparison and shows a smaller gap on symbol accuracy.
-4. **The first LoRA run capped at 79% exact** because Whisper's default decoding *suppresses symbol tokens* (`\ { } ^ _ …`) and the LoRA didn't touch the tied output head; fixing both (generation without suppression, `proj_out` LoRA) took it to 91% (val loss 0.437 → 0.032). Both are documented in the code.
-5. Small per-domain counts (ML 4, physics 8 test examples) make the per-domain table anecdotal; chemistry/CS are not in the standard test split because of the LaTeX-hash split.
+```bash
+python app/app.py                       # Gradio demo: upload/record → generic ASR, MathSpeech LaTeX, plain-text rendering, typeset equation
+python scripts/transcribe.py a.wav      # CLI: generic / LaTeX / Unicode text
+python - <<'PY'
+from src.rendering.latex_to_text import latex_to_text
+print(latex_to_text(r"\int_0^\pi x^2\,dx"))        # ∫₀^π x² dx
+PY
+```
 
 ## Reproduce
-
 ```bash
 git clone https://github.com/Pd172944/voice-math.git && cd voice-math
 cp .env.example .env            # optional: HF_TOKEN, WANDB_API_KEY, OPENROUTER_API_KEY
-bash scripts/run_all.sh         # everything; idempotent, resumes after failure (SKIP_REAL=1 to skip the real-audio stage)
-python app/app.py               # demo at http://localhost:7860
-python scripts/show_dataset.py -n 8   # inspect random examples (+ artifacts/datasets/sample.html with KaTeX)
-python scripts/eval_external.py       # real-speech probe (downloads an eval-only dataset to data/raw/, not redistributed)
+bash scripts/run_all.sh         # everything; idempotent, resumes after failure (SKIP_REAL=1 skips the real-audio stage)
 make test
+python scripts/show_dataset.py -n 8    # inspect random examples
 ```
-
-Single-GPU by design: `CUDA_VISIBLE_DEVICES` defaults to 0. Paths come from `DATA_DIR`, `OUTPUT_DIR`, `MODEL_ID`, `HF_HOME` (see `.env.example`). Wall time on one H100 + a CPU-heavy host: TTS ≈ 6 min, training ≈ 39 min (+21 min ablation), eval ≈ 10 min.
+Single-GPU by design (`CUDA_VISIBLE_DEVICES` defaults to 0). Paths come from `DATA_DIR`, `OUTPUT_DIR`, `MODEL_ID`, `HF_HOME`. Wall time on one H100: TTS ≈ 12 min, training ≈ 26 min, evaluation ≈ 5 min. Set `MODEL_ID=openai/whisper-large-v3-turbo` to run the Whisper backend (uses `whisper_target_modules`; decode without symbol suppression is handled automatically for adapters).
 
 ## Layout
-`src/data/grammar.py` expression grammar · `src/normalization/` lexicon, rules, parser, LLM fallback, canonicalize · `src/evaluation/metrics.py` · `src/inference/asr.py` ·
-`scripts/` pipeline steps (discover → generate_math → generate_spoken → generate_tts → build_real_corpus → build_dataset → validate_dataset → train → evaluate → generate_demo → generate_report) · `app/app.py` · `configs/` · `tests/`.
-Model card: `docs/MODEL_CARD.md` · Dataset card: `docs/DATASET_CARD.md`.
+`src/data/{grammar,compose,ood}.py` expression generators · `src/normalization/` rule normalizer · `src/rendering/latex_to_text.py` · `src/evaluation/metrics.py` · `src/inference/{asr,transcriber}.py` ·
+`scripts/` discover → generate_math → generate_spoken → generate_tts → build_real_corpus → build_dataset → validate_dataset → train → evaluate → eval_external → generate_demo → generate_report · `app/app.py` · `configs/` · `tests/` · cards: `docs/MODEL_CARD.md`, `docs/DATASET_CARD.md`.
 
 ## Limitations
-* Training audio is **synthetic TTS** (one engine, clean read speech, no noise/accents/disfluency). Real-world robustness is only probed, not trained.
-* **Real-audio corpus is empty in this run.** The licensed source we could stream (People's Speech, CC-BY) is almost all civic/meeting speech: of 1,500 keyword-prefiltered clips, 0 passed the strict filters (1,022 low-confidence, 441 not math, 36 unknown words) — the filters worked, there was just no spoken math. Existing math-speech datasets found on the Hub (e.g. `AAAI2025/MathSpeech`) have **no declared licence**, so they are used only as an evaluation probe, never for training or redistribution.
-* LaTeX style is one convention (our grammar's); ambiguous speech ("x sub i j", "R n") is resolved by convention. Letter confusions (b/d/p/t/v) in TTS audio are the main residual acoustic error.
-* Rule normalizer + LLM fallback are untested on long natural lecture sentences (no span-level math detection yet).
-* Weights (113 MB LoRA adapters) are not committed to git (size); `run_all.sh` regenerates them.
+* Training audio is **synthetic TTS** (clean read speech, no accents/disfluency); real speech is only probed. The probe's labels follow a different LaTeX style, so absolute scores there are conservative.
+* **No real training data survived licensing/filters** in this run. Datasets with undeclared licences are never trained on.
+* One LaTeX convention; capitalization and some structure are inherently ambiguous from audio.
+* Rule normalizer is untested on long natural lecture sentences (no span-level math detection yet).
+* Weights (≈160 MB LoRA adapter) are not committed to git; `run_all.sh` regenerates them (25 min).
 
 ## Future work
-Span-level math detection for lecture audio · LLM-paraphrased and LLM-composed spoken math for structural diversity · second TTS engine + noise/room augmentation · real lecture data with permissive licences (and human-verified test set) · constrained decoding (balanced braces, valid commands) · publish adapters to the HF Hub.
+Span-level math detection for lecture audio · LLM-composed spoken math once API credit is available (verify with two independent passes) · second TTS engine + room/noise simulation · real, permissively-licensed lecture data with a human-checked test set · constrained decoding (balanced braces, valid commands) · clean model-vs-data ablation · publish adapters to the HF Hub.

@@ -5,9 +5,14 @@ synthetic:
   test_frac: 0.08
   hard_voices_per_expr: 6      # held-out-template test set: each expression spoken by held-out voices x speeds
   filler_prob: 0.15
+  n_compositional: 13000     # random-tree expressions (src/data/compose.py)
+  comp_val_frac: 0.02
+  comp_test_frac: 0.03       # -> split 'test_comp' (unseen compositions)
 tts:
   engine: kokoro
   train_voices: [af_heart, af_bella, af_nicole, af_sarah, am_adam, am_michael, am_puck, af_kore]
+  extra_train_voices: [af_alloy, af_aoede, af_nova, am_echo, am_eric, am_liam]   # added for the compositional corpus (more speakers)
+  pitch_aug_prob: 0.5          # random pitch+tempo shift (+-7%) on new train clips
   heldout_voices: [af_sky, am_fenrir]      # only used for test splits (unseen speakers)
   speed_range: [0.85, 1.15]
   sample_rate: 16000

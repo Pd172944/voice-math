@@ -2,6 +2,52 @@
  "zeroshot": {
   "n": 433,
   "exact_match": 0.0,
+  "latex_token_edit": 2.8157677315023517,
+  "symbol_acc": 0.0,
+  "symbol_support": 1100,
+  "greek_acc": 0.0,
+  "greek_support": 87,
+  "operator_acc": 0.0,
+  "operator_support": 778,
+  "script_acc": 0.0,
+  "script_support": 639,
+  "bracket_acc": 0.0,
+  "bracket_support": 296,
+  "wer_vs_spoken": 0.05697623356912274
+ },
+ "rules": {
+  "n": 433,
+  "exact_match": 0.48036951501154734,
+  "latex_token_edit": 0.24563448261527665,
+  "symbol_acc": 0.9581818181818181,
+  "symbol_support": 1100,
+  "greek_acc": 0.9195402298850575,
+  "greek_support": 87,
+  "operator_acc": 0.9922879177377892,
+  "operator_support": 778,
+  "script_acc": 0.9655712050078247,
+  "script_support": 639,
+  "bracket_acc": 0.9527027027027027,
+  "bracket_support": 296
+ },
+ "canonical": {
+  "n": 433,
+  "exact_match": 0.9745958429561201,
+  "latex_token_edit": 0.0031861874257608533,
+  "symbol_acc": 0.9972727272727273,
+  "symbol_support": 1100,
+  "greek_acc": 0.9885057471264368,
+  "greek_support": 87,
+  "operator_acc": 1.0,
+  "operator_support": 778,
+  "script_acc": 0.9874804381846636,
+  "script_support": 639,
+  "bracket_acc": 1.0,
+  "bracket_support": 296
+ },
+ "whisper_zeroshot": {
+  "n": 433,
+  "exact_match": 0.0,
   "latex_token_edit": 2.7286011453143084,
   "symbol_acc": 0.0009090909090909091,
   "symbol_support": 1100,
@@ -15,7 +61,7 @@
   "bracket_support": 296,
   "wer_vs_spoken": 0.11718099482712661
  },
- "rules": {
+ "whisper_rules": {
   "n": 433,
   "exact_match": 0.5034642032332564,
   "latex_token_edit": 0.4195215742826797,
@@ -30,7 +76,7 @@
   "bracket_acc": 0.75,
   "bracket_support": 296
  },
- "canonical": {
+ "whisper_canonical": {
   "n": 433,
   "exact_match": 0.9122401847575058,
   "latex_token_edit": 0.012329170618840148,
@@ -45,7 +91,7 @@
   "bracket_acc": 1.0,
   "bracket_support": 296
  },
- "spoken_ft_rules": {
+ "whisper_spoken_ft_rules": {
   "n": 433,
   "exact_match": 0.9006928406466512,
   "latex_token_edit": 0.06781663035348424,
@@ -64,37 +110,37 @@
  "per_domain_exact": {
   "physics": {
    "zeroshot": 0.0,
-   "rules": 0.375,
-   "canonical": 0.75,
+   "rules": 0.5,
+   "canonical": 1.0,
    "n": 8
   },
   "linear_algebra": {
    "zeroshot": 0.0,
-   "rules": 0.0,
-   "canonical": 0.95,
+   "rules": 0.3,
+   "canonical": 1.0,
    "n": 20
   },
   "calculus": {
    "zeroshot": 0.0,
-   "rules": 0.6813186813186813,
-   "canonical": 0.9120879120879121,
+   "rules": 0.6648351648351648,
+   "canonical": 0.9560439560439561,
    "n": 182
   },
   "algebra": {
    "zeroshot": 0.0,
-   "rules": 0.4093567251461988,
-   "canonical": 0.9005847953216374,
+   "rules": 0.29239766081871343,
+   "canonical": 0.9941520467836257,
    "n": 171
   },
   "probability": {
    "zeroshot": 0.0,
-   "rules": 0.4,
+   "rules": 0.6,
    "canonical": 1.0,
    "n": 10
   },
   "set_theory": {
    "zeroshot": 0.0,
-   "rules": 0.4,
+   "rules": 0.43333333333333335,
    "canonical": 1.0,
    "n": 30
   },
@@ -106,7 +152,7 @@
   },
   "analysis": {
    "zeroshot": 0.0,
-   "rules": 0.625,
+   "rules": 1.0,
    "canonical": 1.0,
    "n": 8
   }

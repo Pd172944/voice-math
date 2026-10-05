@@ -27,4 +27,4 @@ def path(env_name, default):
 load_env()
 DATA_DIR = path("DATA_DIR", "data")
 OUTPUT_DIR = path("OUTPUT_DIR", "artifacts")
-MODEL_ID = os.environ.get("MODEL_ID", "openai/whisper-large-v3-turbo")
+MODEL_ID = os.environ.get("MODEL_ID", "Qwen/Qwen3-ASR-1.7B-hf")

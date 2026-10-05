@@ -1,0 +1,128 @@
+{"id": "o0000_0", "zeroshot": "E to the i pi plus one equals zero.", "canonical": "e^{i \\pi} + 1 = 0"}
+{"id": "o0000_1", "zeroshot": "E to the i pi plus one equals zero.", "canonical": "e^{i \\pi} + 1 = 0"}
+{"id": "o0001_0", "zeroshot": "The integral from minus infinity to infinity of e to the minus x squared dx equals the square root of pi.", "canonical": "\\int_{-\\infty}^\\infty e^{-x^2}\\,dx = \\sqrt{\\pi}"}
+{"id": "o0001_1", "zeroshot": "The integral from minus infinity to infinity of e to the minus x squared dx equals the square root of pi.", "canonical": "\\int_{-\\infty}^\\infty e^{-x^2}\\,dx = \\sqrt{\\pi}"}
+{"id": "o0002_0", "zeroshot": "The sum from n equals 1 to infinity of 1 over n squared equals pi squared over 6.", "canonical": "\\sum_{n=1}^\\infty \\frac{1}{n^2} = \\frac{\\pi^2}{6}"}
+{"id": "o0002_1", "zeroshot": "The sum from n equals 1 to infinity of 1 over n squared equals pi squared over 6.", "canonical": "\\sum_{n=1}^\\infty \\frac{1}{n^2} = \\frac{\\pi^2}{6}"}
+{"id": "o0003_0", "zeroshot": "The limit as h goes to zero of the fraction f of x plus h minus f of x over h and fraction equals f prime of x.", "canonical": "\\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h} = f'(x)"}
+{"id": "o0003_1", "zeroshot": "The limit as h goes to zero of the fraction f of x plus h minus f of x over h end fraction equals f prime of x.", "canonical": "\\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h} = f'(x)"}
+{"id": "o0004_0", "zeroshot": "The derivative of e to the x with respect to x equals e to the x.", "canonical": "\\frac{d}{dx} e^x = e^x"}
+{"id": "o0004_1", "zeroshot": "The derivative of e to the x with respect to x equals e to the x.", "canonical": "\\frac{d}{dx} e^x = e^x"}
+{"id": "o0005_0", "zeroshot": "The integral from 0 to 1 of x cubed dx is 1/4.", "canonical": "\\int_0^1 x^3\\,dx = \\frac{1}{4}"}
+{"id": "o0005_1", "zeroshot": "The integral from zero to one of x cubed dx is one fourth.", "canonical": "\\int_0^1 x^3\\,dx = \\frac{1}{4}"}
+{"id": "o0006_0", "zeroshot": "Sine squared theta plus cosine squared theta equals one.", "canonical": "\\sin^2 \\theta + \\cos^2 \\theta = 1"}
+{"id": "o0006_1", "zeroshot": "Sine squared theta plus cosine squared theta equals one.", "canonical": "\\sin^2 \\theta + \\cos^2 \\theta = 1"}
+{"id": "o0007_0", "zeroshot": "Partial squared u over partial x squared plus partial squared u over partial y squared equals zero.", "canonical": "\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2} = 0"}
+{"id": "o0007_1", "zeroshot": "Partial squared u over partial x squared plus partial squared u over partial y squared equals zero.", "canonical": "\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2} = 0"}
+{"id": "o0008_0", "zeroshot": "Nabla squared phi equals zero.", "canonical": "\\nabla^2 \\phi = 0"}
+{"id": "o0008_1", "zeroshot": "Nabla squared phi equals zero.", "canonical": "\\nabla^2 \\phi = 0"}
+{"id": "o0009_0", "zeroshot": "The integral from 0 to 2\u03c0 of sin\u00b2x dx equals \u03c0.", "canonical": "\\int_0^{2\\pi} \\sin^2 x\\,dx = \\pi"}
+{"id": "o0009_1", "zeroshot": "The integral from zero to two pi of sine squared x dx equals pi.", "canonical": "\\int_0^{2\\pi} \\sin^2 x\\,dx = \\pi"}
+{"id": "o0010_0", "zeroshot": "The limit as x goes to infinity of one over x equals zero.", "canonical": "\\lim_{x \\to \\infty} \\frac{1}{x} = 0"}
+{"id": "o0010_1", "zeroshot": "The limit as x goes to infinity of one over x equals zero.", "canonical": "\\lim_{x \\to \\infty} \\frac{1}{x} = 0"}
+{"id": "o0011_0", "zeroshot": "The product from k equals 1 to n of k equals n factorial.", "canonical": "\\prod_{k=1}^n k = n!"}
+{"id": "o0011_1", "zeroshot": "The product from k equals 1 to n of k equals n factorial.", "canonical": "\\prod_{k=1}^n k = n!"}
+{"id": "o0012_0", "zeroshot": "n choose k equals the fraction n factorial over k factorial open paren n minus k close paren factorial n fraction.", "canonical": "\\binom{n}{k} = \\frac{n!}{k! (n - k)!}"}
+{"id": "o0012_1", "zeroshot": "And choose k equals the fraction n factorial over k factorial open paren n minus k close paren factorial end fraction.", "canonical": "\\binom{n}{k} = \\frac{n!}{k! (n - k)!}"}
+{"id": "o0013_0", "zeroshot": "Open paren a plus b close paren squared equals a squared plus two a b plus b squared.", "canonical": "(a + b)^2 = a^2 + 2ab + b^2"}
+{"id": "o0013_1", "zeroshot": "Open paren a plus b close paren squared equals a squared plus two a b plus b squared.", "canonical": "(a + b)^2 = a^2 + 2ab + b^2"}
+{"id": "o0014_0", "zeroshot": "The square root of two is approximately 1.414.", "canonical": "\\sqrt{2} \\approx 1.414"}
+{"id": "o0014_1", "zeroshot": "The square root of two is approximately 1.414.", "canonical": "\\sqrt{2} \\approx 1.414"}
+{"id": "o0015_0", "zeroshot": "1 over x plus 1 over y equals the fraction x plus y over x y end fraction.", "canonical": "\\frac{1}{x} + \\frac{1}{y} = \\frac{x + y}{x y}"}
+{"id": "o0015_1", "zeroshot": "1 over x plus 1 over y equals the fraction x plus y over x y end fraction.", "canonical": "\\frac{1}{x} + \\frac{1}{y} = \\frac{x + y}{x y}"}
+{"id": "o0016_0", "zeroshot": "The absolute value of x minus three is less than two.", "canonical": "|x - 3| < 2"}
+{"id": "o0016_1", "zeroshot": "The absolute value of x minus three is less than two.", "canonical": "|x - 3| < 2"}
+{"id": "o0017_0", "zeroshot": "Log base two of eight equals three.", "canonical": "\\log_2 8 = 3"}
+{"id": "o0017_1", "zeroshot": "Log base two of eight equals three.", "canonical": "\\log_2 8 = 3"}
+{"id": "o0018_0", "zeroshot": "X to the quantity n plus one end quantity.", "canonical": "x^{n+1}"}
+{"id": "o0018_1", "zeroshot": "X to the quantity n plus one, n quantity.", "canonical": "x^{n+1}"}
+{"id": "o0019_0", "zeroshot": "A sub n equals A sub n minus one plus A sub n minus two.", "canonical": "a_n = a_{n-1} + a_{n-2}"}
+{"id": "o0019_1", "zeroshot": "A sub n equals a sub n minus one plus a sub n minus two.", "canonical": "a_n = a_{n-1} + a_{n-2}"}
+{"id": "o0020_0", "zeroshot": "Bold a bold x equals bold b.", "canonical": "\\mathbf{a} \\mathbf{x} = \\mathbf{b}"}
+{"id": "o0020_1", "zeroshot": "Bold a bold x equals bold b.", "canonical": "\\mathbf{a} \\mathbf{x} = \\mathbf{b}"}
+{"id": "o0021_0", "zeroshot": "The two norm of bold x squared equals the sum from i equals one to n of x sub i squared.", "canonical": "\\|\\mathbf{x}\\|_2^2 = \\sum_{i=1}^n x_i^2"}
+{"id": "o0021_1", "zeroshot": "The two norm of bold x squared equals the sum from i equals one to n of x sub i squared.", "canonical": "\\|\\mathbf{x}\\|_2^2 = \\sum_{i=1}^n x_i^2"}
+{"id": "o0022_0", "zeroshot": "Rank of A plus dimension of kernel of A equals n.", "canonical": "\\operatorname{rank}(A) + \\dim(\\ker(A)) = n"}
+{"id": "o0022_1", "zeroshot": "Rank of A plus dimension of kernel of A equals n.", "canonical": "\\operatorname{rank}(A) + \\dim(\\ker(A)) = n"}
+{"id": "o0023_0", "zeroshot": "Open paren A B close paren transpose equals B transpose A transpose.", "canonical": "(A B)^T = B^T A^T"}
+{"id": "o0023_1", "zeroshot": "Open paren a b close paren transpose equals b transpose a transpose.", "canonical": "(A B)^T = B^T A^T"}
+{"id": "o0024_0", "zeroshot": "Open paren a b close paren inverse equals b inverse a inverse.", "canonical": "(ab)^{-1} = b^{-1} a^{-1}"}
+{"id": "o0024_1", "zeroshot": "Open paren a b close paren inverse equals b inverse a inverse.", "canonical": "(A B)^{-1} = B^{-1} A^{-1}"}
+{"id": "o0025_0", "zeroshot": "The determinant of A B equals the determinant of A times the determinant of B.", "canonical": "\\det(A B) = \\det(A) \\cdot \\det(B)"}
+{"id": "o0025_1", "zeroshot": "The determinant of A B equals the determinant of A times the determinant of B.", "canonical": "\\det(A B) = \\det(A) \\cdot \\det(B)"}
+{"id": "o0026_0", "zeroshot": "Bold u dot bold v equals zero.", "canonical": "\\mathbf{u} \\cdot \\mathbf{v} = 0"}
+{"id": "o0026_1", "zeroshot": "Bold u dot bold v equals zero.", "canonical": "\\mathbf{u} \\cdot \\mathbf{v} = 0"}
+{"id": "o0027_0", "zeroshot": "V equals the span of v sub one and v sub two.", "canonical": "V = \\operatorname{span}(v_1, v_2)"}
+{"id": "o0027_1", "zeroshot": "V equals the span of v sub one and v sub two.", "canonical": "V = \\operatorname{span}(v_1, v_2)"}
+{"id": "o0028_0", "zeroshot": "The probability of A union B equals the probability of A plus the probability of B minus the probability of A intersection B.", "canonical": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)"}
+{"id": "o0028_1", "zeroshot": "The probability of A union B equals the probability of A plus the probability of B minus the probability of A intersection B.", "canonical": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)"}
+{"id": "o0029_0", "zeroshot": "The expectation of X plus Y equals the expectation of X plus the expectation of Y.", "canonical": "E[x + y] = E[x] + E[y]"}
+{"id": "o0029_1", "zeroshot": "The expectation of X plus Y equals the expectation of X plus the expectation of Y.", "canonical": "E[x + y] = E[x] + E[y]"}
+{"id": "o0030_0", "zeroshot": "The variance of X equals the expectation of X squared minus open paren the expectation of X close paren squared.", "canonical": "\\operatorname{Var}(X) = E[X^2] - (E[X])^2"}
+{"id": "o0030_1", "zeroshot": "The variance of X equals the expectation of X squared minus open paren the expectation of X close paren squared.", "canonical": "\\operatorname{Var}(X) = E[X^2] - (E[X])^2"}
+{"id": "o0031_0", "zeroshot": "X is distributed as Poisson lambda.", "canonical": "X \\sim \\operatorname{Poisson}(\\lambda)"}
+{"id": "o0031_1", "zeroshot": "X is distributed as Poisson lambda.", "canonical": "X \\sim \\operatorname{Poisson}(\\lambda)"}
+{"id": "o0032_0", "zeroshot": "The probability that X is greater than or equal to a is less than or equal to the expectation of X over a.", "canonical": "P(X \\geq a) \\leq \\frac{E[X]}{a}"}
+{"id": "o0032_1", "zeroshot": "The probability that X is greater than or equal to a is less than or equal to the expectation of X over a.", "canonical": "P(X \\geq a) \\leq \\frac{E[X]}{a}"}
+{"id": "o0033_0", "zeroshot": "P hat equals k over n.", "canonical": "\\hat{p} = \\frac{k}{n}"}
+{"id": "o0033_1", "zeroshot": "P hat equals k over n.", "canonical": "\\hat{p} = \\frac{k}{n}"}
+{"id": "o0034_0", "zeroshot": "S squared equals the fraction 1 over n minus 1 in fraction, times the sum from i equals 1 to n of open paren x sub i minus x bar close paren squared.", "canonical": "s^2 = \\frac{1}{n-1} \\cdot \\sum_{i=1}^n (x_i - \\bar{x})^2"}
+{"id": "o0034_1", "zeroshot": "S squared equals the fraction 1 over n minus 1 end fraction times the sum from i equals 1 to n of open paren x sub i minus x bar close paren squared.", "canonical": "s^2 = \\frac{1}{n-1} \\cdot \\sum_{i=1}^n (x_i - \\bar{x})^2"}
+{"id": "o0035_0", "zeroshot": "Z equals the fraction x minus mu over sigma n fraction.", "canonical": "z = \\frac{x - \\mu}{\\sigma}"}
+{"id": "o0035_1", "zeroshot": "Z equals the fraction x minus mu over sigma n fraction.", "canonical": "z = \\frac{x - \\mu}{\\sigma}"}
+{"id": "o0036_0", "zeroshot": "A intersection B equals the empty set.", "canonical": "A \\cap B = \\emptyset"}
+{"id": "o0036_1", "zeroshot": "A intersection B equals the empty set.", "canonical": "A \\cap B = \\emptyset"}
+{"id": "o0037_0", "zeroshot": "A is a subset of or equal to B implies A union B equals B.", "canonical": "A \\subseteq B \\implies A \\cup B = B"}
+{"id": "o0037_1", "zeroshot": "A is a subset of or equal to B implies A union B equals B.", "canonical": "A \\subseteq B \\implies A \\cup B = B"}
+{"id": "o0038_0", "zeroshot": "For all x in A, f of x is greater than or equal to zero.", "canonical": "\\forall x \\in A, f(x) \\geq 0"}
+{"id": "o0038_1", "zeroshot": "For all x, in A, f of x is greater than or equal to zero.", "canonical": "\\forall x \\in \\mathbb{A}, f(x) \\geq 0"}
+{"id": "o0039_0", "zeroshot": "For all n, in n! , is greater than or equal to one.", "canonical": "\\forall n \\in \\mathbb{N}, n! \\geq 1"}
+{"id": "o0039_1", "zeroshot": "For all n, n n factorial is greater than or equal to one.", "canonical": "\\forall n \\in \\mathbb{N}, \\; n! \\geq 1"}
+{"id": "o0040_0", "zeroshot": "Z is a subset of Q.", "canonical": "Z \\subset Q"}
+{"id": "o0040_1", "zeroshot": "Z is a subset of Q.", "canonical": "Z \\subset Q"}
+{"id": "o0041_0", "zeroshot": "X is not in A union B.", "canonical": "x \\notin A \\cup B"}
+{"id": "o0041_1", "zeroshot": "X is not an A union B.", "canonical": "x \\notin A \\cup B"}
+{"id": "o0042_0", "zeroshot": "The closure of A equals A union the boundary of A.", "canonical": "\\overline{A} = A \\cup \\partial A"}
+{"id": "o0042_1", "zeroshot": "The closure of A equals A union the boundary of A.", "canonical": "\\overline{A} = A \\cup \\partial A"}
+{"id": "o0043_0", "zeroshot": "Death from R to R.", "canonical": "f : \\mathbb{R} \\to \\mathbb{R}"}
+{"id": "o0043_1", "zeroshot": "F from R to R.", "canonical": "f : \\mathbb{R} \\to \\mathbb{R}"}
+{"id": "o0044_0", "zeroshot": "The supremum over x in the interval zero, one of f of x.", "canonical": "\\sup_{x \\in [0, 1]} f(x)"}
+{"id": "o0044_1", "zeroshot": "The supremum over x in the interval zero, one of f of x.", "canonical": "\\sup_{x \\in [0, 1]} f(x)"}
+{"id": "o0045_0", "zeroshot": "Script L of theta equals minus the sum from i equals one to n of log p of y sub i given x sub i.", "canonical": "\\mathcal{L}(\\theta) = -\\sum_{i=1}^n \\log p(y_i \\mid x_i)"}
+{"id": "o0045_1", "zeroshot": "Script L of theta equals minus the sum from i equals one to n of log p of y sub i given x sub i.", "canonical": "\\mathcal{L}(\\theta) = -\\sum_{i=1}^n \\log p(y_i \\mid x_i)"}
+{"id": "o0046_0", "zeroshot": "Partial L over partial w sub i j equals delta sub j x sub i.", "canonical": "\\frac{\\partial L}{\\partial w_{i,j}} = \\delta_{j,x_i}"}
+{"id": "o0046_1", "zeroshot": "Partial L over partial w sub i j equals delta sub j x sub i.", "canonical": "\\frac{\\partial L}{\\partial w_{i,j}} = \\delta_{j,x_i}"}
+{"id": "o0047_0", "zeroshot": "Y hat equals sigma of bold w transpose bold x plus b.", "canonical": "\\hat{y} = \\sigma(\\mathbf{w}^T \\mathbf{x} + b)"}
+{"id": "o0047_1", "zeroshot": "Y hat equals sigma of bold w transpose bold x plus b.", "canonical": "\\hat{y} = \\sigma(\\mathbf{w}^T \\mathbf{x} + b)"}
+{"id": "o0048_0", "zeroshot": "Theta is updated to theta minus alpha nabla sub theta j of theta.", "canonical": "\\theta \\leftarrow \\theta - \\alpha \\nabla_\\theta J(\\theta)"}
+{"id": "o0048_1", "zeroshot": "Theta is updated to theta minus alpha nabla sub theta j of theta.", "canonical": "\\theta \\leftarrow \\theta - \\alpha \\nabla_\\theta J(\\theta)"}
+{"id": "o0049_0", "zeroshot": "ReLU of x equals the max of zero and x.", "canonical": "\\relu(x) = \\max(0, x)"}
+{"id": "o0049_1", "zeroshot": "ReLU of x equals the max of zero and x.", "canonical": "\\relu(x) = \\max(0, x)"}
+{"id": "o0050_0", "zeroshot": "Bold h sub t equals tan h of w bold h sub t minus one.", "canonical": "\\mathbf{h}_t = \\tanh(w) \\mathbf{h}_{t-1}"}
+{"id": "o0050_1", "zeroshot": "Bold h sub t equals tan h of w bold h sub t minus one.", "canonical": "\\mathbf{h}_t = \\tanh(w) \\mathbf{h}_{t-1}"}
+{"id": "o0051_0", "zeroshot": "Vector F equals m times vector a.", "canonical": "\\vec{F} = m \\vec{a}"}
+{"id": "o0051_1", "zeroshot": "Vector F equals m times vector a.", "canonical": "\\vec{F} = m \\vec{a}"}
+{"id": "o0052_0", "zeroshot": "E equals one half mv squared.", "canonical": "E = \\frac{1}{2} m v^2"}
+{"id": "o0052_1", "zeroshot": "E equals one half m v squared.", "canonical": "E = \\frac{1}{2} m v^2"}
+{"id": "o0053_0", "zeroshot": "Vector p equals m vector v.", "canonical": "\\vec{p} = m \\vec{v}"}
+{"id": "o0053_1", "zeroshot": "Vector p equals m vector v.", "canonical": "\\vec{p} = m \\vec{v}"}
+{"id": "o0054_0", "zeroshot": "Delta E equals h nu.", "canonical": "\\Delta E = \\hbar \\nu"}
+{"id": "o0054_1", "zeroshot": "Delta E equals h nu.", "canonical": "\\Delta E = \\hbar \\nu"}
+{"id": "o0055_0", "zeroshot": "The closed integral of vector B dot d vector L equals mu sub zero I.", "canonical": "\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I"}
+{"id": "o0055_1", "zeroshot": "The closed integral of vector B dot d vector L equals mu sub zero I.", "canonical": "\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I"}
+{"id": "o0056_0", "zeroshot": "Lambda equals h over p.", "canonical": "\\lambda = \\frac{h}{p}"}
+{"id": "o0056_1", "zeroshot": "Lambda equals h over p.", "canonical": "\\lambda = \\frac{h}{p}"}
+{"id": "o0057_0", "zeroshot": "F equals G times m sub 1 m sub 2 over r squared.", "canonical": "F = G \\frac{m_1 m_2}{r^2}"}
+{"id": "o0057_1", "zeroshot": "F equals G times m sub 1 m sub 2 over r squared.", "canonical": "F = G \\frac{m_1 m_2}{r^2}"}
+{"id": "o0058_0", "zeroshot": "CH\u2084 + 2O\u2082 yields CO\u2082 + 2H\u2082O.", "canonical": "\\mathrm{CH_4} + 2 \\mathrm{O_2} \\to \\mathrm{CO_2} + 2 \\mathrm{H_2O}"}
+{"id": "o0058_1", "zeroshot": "ZH4 plus 2O2 yields CO2 plus 2H2O.", "canonical": "\\mathrm{CH_4} + 2 \\mathrm{O_2} \\to \\mathrm{CO_2} + 2 \\mathrm{H_2O}"}
+{"id": "o0059_0", "zeroshot": "K equals the concentration of C times the concentration of D over the concentration of A times the concentration of B.", "canonical": "K = \\frac{[\\mathrm{C}][\\mathrm{D}]}{[\\mathrm{A}][\\mathrm{B}]}"}
+{"id": "o0059_1", "zeroshot": "K equals the concentration of C times the concentration of D over the concentration of A times the concentration of B.", "canonical": "K = \\frac{[\\mathrm{C}][\\mathrm{D}]}{[\\mathrm{A}][\\mathrm{B}]}"}
+{"id": "o0060_0", "zeroshot": "T of n equals big O of n log n.", "canonical": "T(n) = O(n \\log n)"}
+{"id": "o0060_1", "zeroshot": "T of n equals big O of n log n.", "canonical": "T(n) = O(n \\log n)"}
+{"id": "o0061_0", "zeroshot": "2 to the n is greater than n squared.", "canonical": "2^n > n^2"}
+{"id": "o0061_1", "zeroshot": "2 to the n is greater than n squared.", "canonical": "2^n > n^2"}
+{"id": "o0062_0", "zeroshot": "The floor of x is less than or equal to x.", "canonical": "\\lfloor x \\rfloor \\leq x"}
+{"id": "o0062_1", "zeroshot": "The floor of x is less than or equal to x.", "canonical": "\\lfloor x \\rfloor \\leq x"}
+{"id": "o0063_0", "zeroshot": "f of n equals omega of g of n.", "canonical": "f(n) = \\Omega(g(n))"}
+{"id": "o0063_1", "zeroshot": "F of n equals omega of g of n.", "canonical": "f(n) = \\Omega(g(n))"}

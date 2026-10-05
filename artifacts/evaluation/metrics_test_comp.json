@@ -1,0 +1,110 @@
+{
+ "zeroshot": {
+  "n": 416,
+  "exact_match": 0.0,
+  "latex_token_edit": 2.9012233294163443,
+  "symbol_acc": 0.0009115770282588879,
+  "symbol_support": 2194,
+  "greek_acc": 0.0,
+  "greek_support": 313,
+  "operator_acc": 0.0015325670498084292,
+  "operator_support": 1305,
+  "script_acc": 0.0,
+  "script_support": 713,
+  "bracket_acc": 0.0,
+  "bracket_support": 574,
+  "wer_vs_spoken": 0.07328919021031809
+ },
+ "rules": {
+  "n": 416,
+  "exact_match": 0.21875,
+  "latex_token_edit": 0.3450984902039788,
+  "symbol_acc": 0.8304466727438469,
+  "symbol_support": 2194,
+  "greek_acc": 0.8370607028753994,
+  "greek_support": 313,
+  "operator_acc": 0.896551724137931,
+  "operator_support": 1305,
+  "script_acc": 0.8499298737727911,
+  "script_support": 713,
+  "bracket_acc": 0.9407665505226481,
+  "bracket_support": 574
+ },
+ "canonical": {
+  "n": 416,
+  "exact_match": 0.9399038461538461,
+  "latex_token_edit": 0.004062835032473411,
+  "symbol_acc": 0.9990884229717412,
+  "symbol_support": 2194,
+  "greek_acc": 0.9968051118210862,
+  "greek_support": 313,
+  "operator_acc": 1.0,
+  "operator_support": 1305,
+  "script_acc": 0.9789621318373072,
+  "script_support": 713,
+  "bracket_acc": 1.0,
+  "bracket_support": 574
+ },
+ "per_domain_exact": {
+  "physics": {
+   "zeroshot": 0.0,
+   "rules": 0.42857142857142855,
+   "canonical": 1.0,
+   "n": 14
+  },
+  "set_theory": {
+   "zeroshot": 0.0,
+   "rules": 0.13043478260869565,
+   "canonical": 0.9130434782608695,
+   "n": 46
+  },
+  "algebra": {
+   "zeroshot": 0.0,
+   "rules": 0.14563106796116504,
+   "canonical": 0.9223300970873787,
+   "n": 103
+  },
+  "ml": {
+   "zeroshot": 0.0,
+   "rules": 0.0,
+   "canonical": 1.0,
+   "n": 6
+  },
+  "calculus": {
+   "zeroshot": 0.0,
+   "rules": 0.3106060606060606,
+   "canonical": 0.9090909090909091,
+   "n": 132
+  },
+  "probability": {
+   "zeroshot": 0.0,
+   "rules": 0.2682926829268293,
+   "canonical": 1.0,
+   "n": 41
+  },
+  "chemistry": {
+   "zeroshot": 0.0,
+   "rules": 0.0,
+   "canonical": 1.0,
+   "n": 10
+  },
+  "linear_algebra": {
+   "zeroshot": 0.0,
+   "rules": 0.16666666666666666,
+   "canonical": 1.0,
+   "n": 42
+  },
+  "analysis": {
+   "zeroshot": 0.0,
+   "rules": 0.375,
+   "canonical": 0.875,
+   "n": 8
+  },
+  "cs": {
+   "zeroshot": 0.0,
+   "rules": 0.14285714285714285,
+   "canonical": 1.0,
+   "n": 14
+  }
+ }
+}

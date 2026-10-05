@@ -1,75 +1,75 @@
 # MathSpeech – experiment results
 
 
-## Test (unseen expressions, partly unseen voices)
+## Test — unseen expressions (template families seen in training)
 
-| metric | zeroshot | rules | canonical | spoken_ft_rules |
-|---|---|---|---|---|
-| exact_match | 0.000 | 0.503 | 0.912 | 0.901 |
-| latex_token_edit | 2.729 | 0.420 | 0.012 | 0.068 |
-| symbol_acc | 0.001 | 0.941 | 0.989 | 0.992 |
-| greek_acc | 0.000 | 0.943 | 0.977 | 0.989 |
-| operator_acc | 0.001 | 0.978 | 0.997 | 0.999 |
-| script_acc | 0.000 | 0.901 | 0.987 | 0.986 |
-| bracket_acc | 0.000 | 0.750 | 1.000 | 0.986 |
-| wer_vs_spoken | 0.117 | – | – | 0.003 |
+| metric | A. Qwen3-ASR zero-shot | C. A + rule normaliser | B. MathSpeech (Qwen3-ASR+LoRA) | Whisper v3-turbo zero-shot | Whisper + rules | Whisper + LoRA (v1) |
+|---|---|---|---|---|---|---|
+| exact_match | 0.000 | 0.480 | 0.975 | 0.000 | 0.503 | 0.912 |
+| latex_token_edit | 2.816 | 0.246 | 0.003 | 2.729 | 0.420 | 0.012 |
+| symbol_acc | 0.000 | 0.958 | 0.997 | 0.001 | 0.941 | 0.989 |
+| greek_acc | 0.000 | 0.920 | 0.989 | 0.000 | 0.943 | 0.977 |
+| operator_acc | 0.000 | 0.992 | 1.000 | 0.001 | 0.978 | 0.997 |
+| script_acc | 0.000 | 0.966 | 0.987 | 0.000 | 0.901 | 0.987 |
+| bracket_acc | 0.000 | 0.953 | 1.000 | 0.000 | 0.750 | 1.000 |
+| wer_vs_spoken | 0.057 | – | – | 0.117 | – | – |
 
-| domain | n | generic | generic+rules | MathSpeech |
-|---|---|---|---|---|
-| algebra | 171 | 0.00 | 0.41 | 0.90 |
-| analysis | 8 | 0.00 | 0.62 | 1.00 |
-| calculus | 182 | 0.00 | 0.68 | 0.91 |
-| linear_algebra | 20 | 0.00 | 0.00 | 0.95 |
-| ml | 4 | 0.00 | 0.00 | 0.50 |
-| physics | 8 | 0.00 | 0.38 | 0.75 |
-| probability | 10 | 0.00 | 0.40 | 1.00 |
-| set_theory | 30 | 0.00 | 0.40 | 1.00 |
+## Test-comp — unseen random compositions of known constructs
 
-## Hard test (unseen grammar templates, unseen voices)
-
-| metric | zeroshot | rules | canonical | spoken_ft_rules |
-|---|---|---|---|---|
-| exact_match | 0.000 | 0.426 | 0.111 | 0.444 |
-| latex_token_edit | 2.674 | 0.318 | 0.368 | 0.192 |
-| symbol_acc | 0.000 | 0.869 | 0.553 | 0.894 |
-| greek_acc | 0.000 | 1.000 | 0.857 | 1.000 |
-| operator_acc | 0.000 | 0.904 | 0.724 | 0.962 |
-| script_acc | 0.000 | 0.347 | 0.778 | 0.583 |
-| bracket_acc | 0.000 | 0.875 | 0.750 | 1.000 |
-| wer_vs_spoken | 0.168 | – | – | 0.000 |
-
-| domain | n | generic | generic+rules | MathSpeech |
-|---|---|---|---|---|
-| algebra | 6 | 0.00 | 0.00 | 0.00 |
-| analysis | 6 | 0.00 | 1.00 | 0.00 |
-| calculus | 6 | 0.00 | 0.33 | 1.00 |
-| chemistry | 6 | 0.00 | 0.00 | 0.00 |
-| linear_algebra | 6 | 0.00 | 1.00 | 0.00 |
-| ml | 6 | 0.00 | 0.17 | 0.00 |
-| physics | 6 | 0.00 | 0.00 | 0.00 |
-| probability | 6 | 0.00 | 0.50 | 0.00 |
-| set_theory | 6 | 0.00 | 0.83 | 0.00 |
-
-## Training
-
-- model: `openai/whisper-large-v3-turbo` + LoRA, target_mode=`canonical`
-- steps: 1864, examples: 14917, best val loss: 0.0324
-- GPU: NVIDIA H100 80GB HBM3, wall time: 39.0 min
-
-See `artifacts/evaluation/report.html` for audio + rendered examples.
-
-## Real human speech probe (evaluation only; AAAI2025/MathSpeech, n=1101)
-
-| | generic | generic+rules | MathSpeech |
+| metric | A. Qwen3-ASR zero-shot | C. A + rule normaliser | B. MathSpeech (Qwen3-ASR+LoRA) |
 |---|---|---|---|
-| token edit | 2.010 | 0.654 | 0.357 |
-| script acc | 0.000 | 0.581 | 0.750 |
-| symbol acc | 0.011 | 0.713 | 0.686 |
+| exact_match | 0.000 | 0.219 | 0.940 |
+| latex_token_edit | 2.901 | 0.345 | 0.004 |
+| symbol_acc | 0.001 | 0.830 | 0.999 |
+| greek_acc | 0.000 | 0.837 | 0.997 |
+| operator_acc | 0.002 | 0.897 | 1.000 |
+| script_acc | 0.000 | 0.850 | 0.979 |
+| bracket_acc | 0.000 | 0.941 | 1.000 |
+| wer_vs_spoken | 0.073 | – | – |
 
-## Ablation log
+## Test-hard — 9 grammar templates never seen in training, unseen voices
 
-| run | change | test exact | test_hard exact |
+| metric | A. Qwen3-ASR zero-shot | C. A + rule normaliser | B. MathSpeech (Qwen3-ASR+LoRA) | Whisper v3-turbo zero-shot | Whisper + rules | Whisper + LoRA (v1) |
+|---|---|---|---|---|---|---|
+| exact_match | 0.000 | 0.556 | 0.481 | 0.000 | 0.426 | 0.111 |
+| latex_token_edit | 2.652 | 0.191 | 0.202 | 2.674 | 0.318 | 0.368 |
+| symbol_acc | 0.007 | 0.933 | 0.812 | 0.000 | 0.869 | 0.553 |
+| greek_acc | 0.000 | 0.857 | 1.000 | 0.000 | 1.000 | 0.857 |
+| operator_acc | 0.013 | 0.923 | 0.885 | 0.000 | 0.904 | 0.724 |
+| script_acc | 0.000 | 0.583 | 1.000 | 0.000 | 0.347 | 0.778 |
+| bracket_acc | 0.000 | 1.000 | 1.000 | 0.000 | 0.875 | 0.750 |
+| wer_vs_spoken | 0.139 | – | – | 0.168 | – | – |
+
+## Test-OOD — 64 hand-written expressions, natural phrasing, unseen voices
+
+| metric | A. Qwen3-ASR zero-shot | C. A + rule normaliser | B. MathSpeech (Qwen3-ASR+LoRA) |
 |---|---|---|---|
-| v1 | LoRA on attn+MLP only, 3 ep, default Whisper token suppression lifted | 0.792 | 0.111 |
-| v3 (final) | + LoRA on proj_out, 4 ep, lr 1.5e-4 | 0.912 | 0.111 |
-| D | spoken-target LoRA (2 ep) + rule normalizer | 0.901 | 0.444 |
+| exact_match | 0.000 | 0.406 | 0.797 |
+| latex_token_edit | 2.968 | 0.420 | 0.044 |
+| symbol_acc | 0.008 | 0.903 | 0.983 |
+| greek_acc | 0.000 | 0.913 | 1.000 |
+| operator_acc | 0.010 | 0.969 | 0.993 |
+| script_acc | 0.000 | 0.867 | 0.962 |
+| bracket_acc | 0.000 | 0.792 | 0.979 |
+| wer_vs_spoken | 0.055 | – | – |
+
+## Real human speech (evaluation only; AAAI2025/MathSpeech, n=1101)
+
+| metric | zeroshot | rules | mathspeech |
+|---|---|---|---|
+| exact_match | 0.000 | 0.084 | 0.305 |
+| latex_token_edit | 2.166 | 0.527 | 0.264 |
+| symbol_acc | 0.000 | 0.744 | 0.854 |
+| greek_acc | 0.000 | 0.880 | 0.892 |
+| operator_acc | 0.000 | 0.800 | 0.957 |
+| script_acc | 0.000 | 0.628 | 0.800 |
+| bracket_acc | 0.000 | 0.347 | 0.432 |
+| wer_vs_spoken | 0.182 | – | – |
+
+## Training — Qwen3-ASR LoRA (final)
+
+- model: `Qwen/Qwen3-ASR-1.7B-hf` + LoRA, target_mode=`canonical`
+- steps: 2550, examples: 27204, best val loss: 0.0122
+- GPU: NVIDIA H100 80GB HBM3, wall time: 25.5 min
+
+See `artifacts/evaluation/report.html` for audio + typeset examples.

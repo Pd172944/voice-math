@@ -20,7 +20,7 @@ def clean_ref(s):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--n", type=int, default=0); ap.add_argument("--adapter", default=str(OUTPUT_DIR / "model/mathspeech-canonical/best"))
+    ap = argparse.ArgumentParser(); ap.add_argument("--n", type=int, default=0); ap.add_argument("--adapter", default=str(OUTPUT_DIR / "model/qwen3asr-canonical/best"))
     a = ap.parse_args()
     import pandas as pd
     from huggingface_hub import hf_hub_download
@@ -30,10 +30,10 @@ def main():
     audio = [(sf.read(io.BytesIO(r["bytes"]), dtype="float32")) for r in df.audio]
     audio = [(x.mean(1) if x.ndim > 1 else x, sr) for x, sr in audio]
     refs = [clean_ref(x) for x in df.LaTeX]
-    from src.inference.asr import ASR
+    from src.inference.asr import make_asr
     import torch
-    g = ASR(MODEL_ID).transcribe(audio, batch_size=16); torch.cuda.empty_cache()
-    m = ASR(MODEL_ID, adapter=a.adapter).transcribe(audio, batch_size=16)
+    g = make_asr(MODEL_ID).transcribe(audio, batch_size=16); torch.cuda.empty_cache()
+    m = make_asr(MODEL_ID, adapter=a.adapter).transcribe(audio, batch_size=16)
     systems = {"zeroshot": g, "rules": [canonicalize(x)["latex"] for x in g], "mathspeech": m}
     res = {k: M.aggregate([M.score_example(h, r) for h, r in zip(v, refs)]) for k, v in systems.items()}
     res["zeroshot"]["wer_vs_spoken"] = float(np.mean([M.wer(h, t) for h, t in zip(g, df.transcription)]))

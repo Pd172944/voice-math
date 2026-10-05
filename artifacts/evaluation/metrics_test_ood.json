@@ -1,0 +1,110 @@
+{
+ "zeroshot": {
+  "n": 128,
+  "exact_match": 0.0,
+  "latex_token_edit": 2.967878734361261,
+  "symbol_acc": 0.007722007722007722,
+  "symbol_support": 518,
+  "greek_acc": 0.0,
+  "greek_support": 46,
+  "operator_acc": 0.01020408163265306,
+  "operator_support": 294,
+  "script_acc": 0.0,
+  "script_support": 158,
+  "bracket_acc": 0.0,
+  "bracket_support": 192,
+  "wer_vs_spoken": 0.05526409354534354
+ },
+ "rules": {
+  "n": 128,
+  "exact_match": 0.40625,
+  "latex_token_edit": 0.4201454083645596,
+  "symbol_acc": 0.9034749034749034,
+  "symbol_support": 518,
+  "greek_acc": 0.9130434782608695,
+  "greek_support": 46,
+  "operator_acc": 0.9693877551020408,
+  "operator_support": 294,
+  "script_acc": 0.8670886075949367,
+  "script_support": 158,
+  "bracket_acc": 0.7916666666666666,
+  "bracket_support": 192
+ },
+ "canonical": {
+  "n": 128,
+  "exact_match": 0.796875,
+  "latex_token_edit": 0.04427817449316809,
+  "symbol_acc": 0.9826254826254827,
+  "symbol_support": 518,
+  "greek_acc": 1.0,
+  "greek_support": 46,
+  "operator_acc": 0.9931972789115646,
+  "operator_support": 294,
+  "script_acc": 0.9620253164556962,
+  "script_support": 158,
+  "bracket_acc": 0.9791666666666666,
+  "bracket_support": 192
+ },
+ "per_domain_exact": {
+  "algebra": {
+   "zeroshot": 0.0,
+   "rules": 0.4444444444444444,
+   "canonical": 1.0,
+   "n": 18
+  },
+  "calculus": {
+   "zeroshot": 0.0,
+   "rules": 0.8181818181818182,
+   "canonical": 1.0,
+   "n": 22
+  },
+  "linear_algebra": {
+   "zeroshot": 0.0,
+   "rules": 0.1875,
+   "canonical": 0.4375,
+   "n": 16
+  },
+  "probability": {
+   "zeroshot": 0.0,
+   "rules": 0.125,
+   "canonical": 0.75,
+   "n": 16
+  },
+  "set_theory": {
+   "zeroshot": 0.0,
+   "rules": 0.5,
+   "canonical": 0.75,
+   "n": 12
+  },
+  "analysis": {
+   "zeroshot": 0.0,
+   "rules": 0.3333333333333333,
+   "canonical": 1.0,
+   "n": 6
+  },
+  "ml": {
+   "zeroshot": 0.0,
+   "rules": 0.0,
+   "canonical": 0.3333333333333333,
+   "n": 12
+  },
+  "physics": {
+   "zeroshot": 0.0,
+   "rules": 0.6428571428571429,
+   "canonical": 0.8571428571428571,
+   "n": 14
+  },
+  "chemistry": {
+   "zeroshot": 0.0,
+   "rules": 0.0,
+   "canonical": 1.0,
+   "n": 4
+  },
+  "cs": {
+   "zeroshot": 0.0,
+   "rules": 0.5,
+   "canonical": 1.0,
+   "n": 8
+  }
+ }
+}

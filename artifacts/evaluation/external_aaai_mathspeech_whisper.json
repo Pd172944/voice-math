@@ -1,0 +1,48 @@
+{
+ "zeroshot": {
+  "n": 1101,
+  "exact_match": 0.0,
+  "latex_token_edit": 2.00987114431312,
+  "symbol_acc": 0.010862818125387958,
+  "symbol_support": 3222,
+  "greek_acc": 0.0,
+  "greek_support": 249,
+  "operator_acc": 0.015873015873015872,
+  "operator_support": 2205,
+  "script_acc": 0.0,
+  "script_support": 1098,
+  "bracket_acc": 0.0,
+  "bracket_support": 1036,
+  "wer_vs_spoken": 0.31399617799195934
+ },
+ "rules": {
+  "n": 1101,
+  "exact_match": 0.148047229791099,
+  "latex_token_edit": 0.6540167962940907,
+  "symbol_acc": 0.7126008690254501,
+  "symbol_support": 3222,
+  "greek_acc": 0.8795180722891566,
+  "greek_support": 249,
+  "operator_acc": 0.7619047619047619,
+  "operator_support": 2205,
+  "script_acc": 0.581056466302368,
+  "script_support": 1098,
+  "bracket_acc": 0.2644787644787645,
+  "bracket_support": 1036
+ },
+ "mathspeech": {
+  "n": 1101,
+  "exact_match": 0.17166212534059946,
+  "latex_token_edit": 0.35737570609567865,
+  "symbol_acc": 0.6855990068280571,
+  "symbol_support": 3222,
+  "greek_acc": 0.7550200803212851,
+  "greek_support": 249,
+  "operator_acc": 0.7523809523809524,
+  "operator_support": 2205,
+  "script_acc": 0.7495446265938069,
+  "script_support": 1098,
+  "bracket_acc": 0.3465250965250965,
+  "bracket_support": 1036
+ }
+}

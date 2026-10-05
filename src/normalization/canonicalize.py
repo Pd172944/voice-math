@@ -7,7 +7,7 @@ from . import llm_normalizer
 ALLOWED_CMDS = set(r"""frac int sum prod lim partial nabla sqrt pi alpha beta gamma delta epsilon varepsilon zeta eta theta iota kappa lambda mu nu xi rho
 sigma tau upsilon phi chi psi omega Gamma Delta Theta Lambda Xi Pi Sigma Phi Psi Omega infty in notin subset subseteq supset cup cap setminus
 forall exists emptyset leq geq neq approx pm times cdot div to mapsto implies iff sim propto mid mathbb mathbf mathcal mathrm vec bar hat tilde
-overline sin cos tan log ln exp arg min max sup inf det operatorname hbar ell langle rangle left right ldots text epsilon tanh Omega dagger""".split())
+overline sin cos tan log ln exp arg min max sup inf det operatorname hbar ell langle rangle left right ldots text epsilon tanh Omega dagger begin end binom iint iiint oint bigcup bigcap cdots dots colon vert Vert lfloor rfloor lceil rceil arctan arcsin arccos nu leftarrow rightarrow Rightarrow leftrightarrow Leftrightarrow top mathsf mathscr boldsymbol dot ddot underline kernel ker dim rank deg gcd lcm lg sinh cosh tanh coth mod""".split())
 
 
 def balanced(s):
