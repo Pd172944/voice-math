@@ -1,0 +1,16 @@
+model: openai/whisper-large-v3-turbo
+fallback_model: openai/whisper-small.en
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, out_proj, fc1, fc2, proj_out]   # proj_out: LoRA on the (tied) output head so rare LaTeX tokens can be boosted
+epochs: 4
+learning_rate: 1.5e-4
+batch_size: 16
+gradient_accumulation: 2
+max_audio_seconds: 20
+target_mode: canonical
+warmup_steps: 100
+seed: 1234
+bf16: true

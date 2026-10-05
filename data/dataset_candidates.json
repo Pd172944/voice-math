@@ -1,0 +1,812 @@
+{
+ "n_candidates": 43,
+ "n_usable_audio_permissive": 6,
+ "candidates": [
+  {
+   "id": "MLCommons/peoples_speech",
+   "license": "cc-by-2.0",
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [
+    "automatic-speech-recognition"
+   ],
+   "size_category": [
+    "1M<n<10M"
+   ],
+   "downloads": 34805,
+   "likes": 286,
+   "gated": false,
+   "is_audio": true,
+   "permissive": true,
+   "matched_keywords": [
+    "peoples_speech"
+   ],
+   "splits_hint": null
+  },
+  {
+   "id": "MLCommons/peoples_speech_v1.0",
+   "license": "cc-by-2.0",
+   "modality": [],
+   "tasks": [
+    "automatic-speech-recognition"
+   ],
+   "size_category": [],
+   "downloads": 714,
+   "likes": 8,
+   "gated": false,
+   "is_audio": true,
+   "permissive": true,
+   "matched_keywords": [
+    "peoples_speech"
+   ],
+   "splits_hint": []
+  },
+  {
+   "id": "Shxbhxm21/lecture-tts-audio",
+   "license": "cc-by-4.0",
+   "modality": [
+    "audio"
+   ],
+   "tasks": [
+    "text-to-speech"
+   ],
+   "size_category": [
+    "n<1K"
+   ],
+   "downloads": 83,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": true,
+   "matched_keywords": [
+    "lecture audio"
+   ],
+   "splits_hint": []
+  },
+  {
+   "id": "distil-whisper/peoples_speech-clean",
+   "license": "cc-by-4.0",
+   "modality": [],
+   "tasks": [
+    "automatic-speech-recognition"
+   ],
+   "size_category": [],
+   "downloads": 51,
+   "likes": 1,
+   "gated": false,
+   "is_audio": true,
+   "permissive": true,
+   "matched_keywords": [
+    "peoples_speech"
+   ],
+   "splits_hint": []
+  },
+  {
+   "id": "distil-whisper/peoples_speech-clean-timestamped",
+   "license": "cc-by-4.0",
+   "modality": [],
+   "tasks": [
+    "automatic-speech-recognition"
+   ],
+   "size_category": [],
+   "downloads": 9,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": true,
+   "matched_keywords": [
+    "peoples_speech"
+   ],
+   "splits_hint": []
+  },
+  {
+   "id": "distil-whisper/peoples_speech-dirty",
+   "license": "cc-by-4.0",
+   "modality": [],
+   "tasks": [
+    "automatic-speech-recognition"
+   ],
+   "size_category": [],
+   "downloads": 8,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": true,
+   "matched_keywords": [
+    "peoples_speech"
+   ],
+   "splits_hint": []
+  },
+  {
+   "id": "cmeraki/peoples_speech_tokens",
+   "license": "mit",
+   "modality": [],
+   "tasks": [],
+   "size_category": [],
+   "downloads": 19,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": true,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "laion/unsupervised_peoples_speech_with_annotations1",
+   "license": "cc-by-4.0",
+   "modality": [
+    "tabular",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "n<1K"
+   ],
+   "downloads": 19,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": true,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "harisnaeem/The_Feynman_Lectures_on_Physics_Textbook_by_Matthew_Sands_Richard_Feynman_and_Robert_B_Leighton",
+   "license": "mit",
+   "modality": [],
+   "tasks": [],
+   "size_category": [],
+   "downloads": 10,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": true,
+   "matched_keywords": [
+    "physics lecture"
+   ]
+  },
+  {
+   "id": "SofusWenoee/50_reverse_engineered_lecture_transcripts_replicate_1",
+   "license": "apache-2.0",
+   "modality": [
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "n<1K"
+   ],
+   "downloads": 6,
+   "likes": 1,
+   "gated": false,
+   "is_audio": false,
+   "permissive": true,
+   "matched_keywords": [
+    "lecture transcripts"
+   ]
+  },
+  {
+   "id": "laion/unsupervised_peoples_speech_with_annotations2",
+   "license": "cc-by-4.0",
+   "modality": [],
+   "tasks": [],
+   "size_category": [],
+   "downloads": 4,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": true,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "MLCommons/unsupervised_peoples_speech",
+   "license": null,
+   "modality": [
+    "audio"
+   ],
+   "tasks": [
+    "automatic-speech-recognition",
+    "audio-classification"
+   ],
+   "size_category": [],
+   "downloads": 16845,
+   "likes": 81,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "fixie-ai/peoples_speech",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1M<n<10M"
+   ],
+   "downloads": 1778,
+   "likes": 2,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "laion/unsupervised_peoples_speech_raw_voice_activity_detection_snippets_part_1",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "100M<n<1B"
+   ],
+   "downloads": 605,
+   "likes": 4,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "galv/peoples_speech_test_and_dev",
+   "license": null,
+   "modality": [
+    "audio"
+   ],
+   "tasks": [],
+   "size_category": [
+    "n<1K"
+   ],
+   "downloads": 353,
+   "likes": 1,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "lmms-lab-audio/peoples_speech",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "10K<n<100K"
+   ],
+   "downloads": 251,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "TwinkStart/peoples_speech",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "10K<n<100K"
+   ],
+   "downloads": 180,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "AudioLLMs/peoples_speech_test",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "10K<n<100K"
+   ],
+   "downloads": 152,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "Alarak/peoples_speech_0",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "10K<n<100K"
+   ],
+   "downloads": 26,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "chasedreaminf/peoples_speech_sample",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "10K<n<100K"
+   ],
+   "downloads": 20,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "Mat021007/law5008-lecture-audio",
+   "license": null,
+   "modality": [
+    "audio"
+   ],
+   "tasks": [],
+   "size_category": [
+    "n<1K"
+   ],
+   "downloads": 19,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "lecture audio"
+   ]
+  },
+  {
+   "id": "abdallah11119/math-speech-dataset",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1K<n<10K"
+   ],
+   "downloads": 17,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "math speech"
+   ]
+  },
+  {
+   "id": "mrsndmn/MathSpeech_whisper_transcribed_normalized",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1K<n<10K"
+   ],
+   "downloads": 14,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "math speech"
+   ]
+  },
+  {
+   "id": "mrsndmn/MathSpeech_whisper_transcribed",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1K<n<10K"
+   ],
+   "downloads": 13,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "math speech"
+   ]
+  },
+  {
+   "id": "AAAI2025/MathSpeech",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1K<n<10K"
+   ],
+   "downloads": 12,
+   "likes": 4,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "math speech"
+   ]
+  },
+  {
+   "id": "DynamicSuperb/AudioEditingIdentification_PeoplesSpeech",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "n<1K"
+   ],
+   "downloads": 12,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "dcml0714/speech_math",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1K<n<10K"
+   ],
+   "downloads": 9,
+   "likes": 2,
+   "gated": true,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "math speech"
+   ]
+  },
+  {
+   "id": "WillHeld/PeoplesSpeech_Shuffled_Processed",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1M<n<10M"
+   ],
+   "downloads": 9,
+   "likes": 0,
+   "gated": true,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "DynamicSuperb/AudioEditingIdentification_peoples_speech",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "n<1K"
+   ],
+   "downloads": 9,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "anonymous1unknown/MathSpeech",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1K<n<10K"
+   ],
+   "downloads": 7,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "math speech"
+   ]
+  },
+  {
+   "id": "zhouzc513622/MathSpeech",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1K<n<10K"
+   ],
+   "downloads": 7,
+   "likes": 0,
+   "gated": false,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "math speech"
+   ]
+  },
+  {
+   "id": "dcml0714/speech_math_asr",
+   "license": null,
+   "modality": [
+    "audio",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1K<n<10K"
+   ],
+   "downloads": 6,
+   "likes": 0,
+   "gated": true,
+   "is_audio": true,
+   "permissive": false,
+   "matched_keywords": [
+    "math speech"
+   ]
+  },
+  {
+   "id": "laion/unsupervised_peoples_speech_raw_voice_activity_detection_snippets_part_2",
+   "license": null,
+   "modality": [],
+   "tasks": [],
+   "size_category": [],
+   "downloads": 268,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "filicosTHU/spoken_math",
+   "license": null,
+   "modality": [],
+   "tasks": [],
+   "size_category": [],
+   "downloads": 241,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "spoken math"
+   ]
+  },
+  {
+   "id": "ylacombe/peoples_speech-tags-annotated",
+   "license": null,
+   "modality": [
+    "tabular",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1M<n<10M"
+   ],
+   "downloads": 44,
+   "likes": 1,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "temi/lecture-audio",
+   "license": null,
+   "modality": [
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "n<1K"
+   ],
+   "downloads": 26,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "lecture audio"
+   ]
+  },
+  {
+   "id": "jablonkagroup/mit-ocw-lecture-transcripts",
+   "license": null,
+   "modality": [
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1K<n<10K"
+   ],
+   "downloads": 26,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "lecture transcripts"
+   ]
+  },
+  {
+   "id": "ylacombe/peoples_speech-tags",
+   "license": null,
+   "modality": [
+    "tabular",
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1M<n<10M"
+   ],
+   "downloads": 23,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "ylacombe/peoples_speech_repunc",
+   "license": null,
+   "modality": [
+    "text"
+   ],
+   "tasks": [],
+   "size_category": [
+    "1M<n<10M"
+   ],
+   "downloads": 11,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "AcaSp/AcademicSpeech",
+   "license": null,
+   "modality": [],
+   "tasks": [],
+   "size_category": [],
+   "downloads": 4,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "academic speech"
+   ]
+  },
+  {
+   "id": "MphoNkala2023/lecture_audio_recordings",
+   "license": null,
+   "modality": [],
+   "tasks": [],
+   "size_category": [],
+   "downloads": 3,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "lecture audio"
+   ]
+  },
+  {
+   "id": "mitchelldehaven/peoples_speech-clean",
+   "license": null,
+   "modality": [],
+   "tasks": [],
+   "size_category": [],
+   "downloads": 3,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "peoples_speech"
+   ]
+  },
+  {
+   "id": "abdallah1119/math-speech-dataset",
+   "license": null,
+   "modality": [],
+   "tasks": [],
+   "size_category": [],
+   "downloads": 1,
+   "likes": 0,
+   "gated": false,
+   "is_audio": false,
+   "permissive": false,
+   "matched_keywords": [
+    "math speech"
+   ]
+  }
+ ]
+}

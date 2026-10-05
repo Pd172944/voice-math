@@ -1,0 +1,98 @@
+{
+ "zeroshot": {
+  "n": 433,
+  "exact_match": 0.0,
+  "latex_token_edit": 2.7286011453143084,
+  "symbol_acc": 0.0009090909090909091,
+  "symbol_support": 1100,
+  "greek_acc": 0.0,
+  "greek_support": 87,
+  "operator_acc": 0.0012853470437017994,
+  "operator_support": 778,
+  "script_acc": 0.0,
+  "script_support": 639,
+  "bracket_acc": 0.0,
+  "bracket_support": 296,
+  "wer_vs_spoken": 0.11718099482712661
+ },
+ "rules": {
+  "n": 433,
+  "exact_match": 0.5034642032332564,
+  "latex_token_edit": 0.4195215742826797,
+  "symbol_acc": 0.9409090909090909,
+  "symbol_support": 1100,
+  "greek_acc": 0.9425287356321839,
+  "greek_support": 87,
+  "operator_acc": 0.9781491002570694,
+  "operator_support": 778,
+  "script_acc": 0.9014084507042254,
+  "script_support": 639,
+  "bracket_acc": 0.75,
+  "bracket_support": 296
+ },
+ "canonical": {
+  "n": 433,
+  "exact_match": 0.792147806004619,
+  "latex_token_edit": 0.10479614663066439,
+  "symbol_acc": 0.9336363636363636,
+  "symbol_support": 1100,
+  "greek_acc": 0.8735632183908046,
+  "greek_support": 87,
+  "operator_acc": 0.9858611825192802,
+  "operator_support": 778,
+  "script_acc": 0.9890453834115805,
+  "script_support": 639,
+  "bracket_acc": 0.8344594594594594,
+  "bracket_support": 296
+ },
+ "per_domain_exact": {
+  "physics": {
+   "zeroshot": 0.0,
+   "rules": 0.375,
+   "canonical": 0.5,
+   "n": 8
+  },
+  "linear_algebra": {
+   "zeroshot": 0.0,
+   "rules": 0.0,
+   "canonical": 1.0,
+   "n": 20
+  },
+  "calculus": {
+   "zeroshot": 0.0,
+   "rules": 0.6813186813186813,
+   "canonical": 0.8076923076923077,
+   "n": 182
+  },
+  "algebra": {
+   "zeroshot": 0.0,
+   "rules": 0.4093567251461988,
+   "canonical": 0.7134502923976608,
+   "n": 171
+  },
+  "probability": {
+   "zeroshot": 0.0,
+   "rules": 0.4,
+   "canonical": 1.0,
+   "n": 10
+  },
+  "set_theory": {
+   "zeroshot": 0.0,
+   "rules": 0.4,
+   "canonical": 1.0,
+   "n": 30
+  },
+  "ml": {
+   "zeroshot": 0.0,
+   "rules": 0.0,
+   "canonical": 0.5,
+   "n": 4
+  },
+  "analysis": {
+   "zeroshot": 0.0,
+   "rules": 0.625,
+   "canonical": 1.0,
+   "n": 8
+  }
+ }
+}

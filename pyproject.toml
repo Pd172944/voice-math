@@ -1,0 +1,14 @@
+[project]
+name = "mathspeech"
+version = "0.1.0"
+description = "Domain-specialized speech recognition for mathematical notation (Whisper + LoRA, synthetic + real speech)"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["transformers>=4.50", "peft", "accelerate", "datasets", "soundfile", "librosa", "jiwer", "gradio", "huggingface_hub", "kokoro>=0.9", "misaki", "wandb", "pyyaml", "pytest", "numpy"]
+
+[tool.setuptools]
+packages = ["src", "src.data", "src.normalization", "src.training", "src.evaluation", "src.inference"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

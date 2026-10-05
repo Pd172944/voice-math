@@ -1,0 +1,20 @@
+seed: 1234
+synthetic:
+  n_expressions: 14000        # unique non-heldout expressions (train+val+test)
+  val_frac: 0.03
+  test_frac: 0.08
+  hard_voices_per_expr: 6      # held-out-template test set: each expression spoken by held-out voices x speeds
+  filler_prob: 0.15
+tts:
+  engine: kokoro
+  train_voices: [af_heart, af_bella, af_nicole, af_sarah, am_adam, am_michael, am_puck, af_kore]
+  heldout_voices: [af_sky, am_fenrir]      # only used for test splits (unseen speakers)
+  speed_range: [0.85, 1.15]
+  sample_rate: 16000
+  workers: 4
+real:
+  source: MLCommons/peoples_speech
+  config: clean
+  license: "CC-BY-2.0/CC-BY-SA (People's Speech, per-item CC-BY or CC-BY-SA)"
+  max_clips: 3000
+  min_confidence: 0.8
