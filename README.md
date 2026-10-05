@@ -8,6 +8,8 @@
 
 ![architecture](docs/architecture.svg)
 
+**Model weights:** [`Pd172944/mathspeech-qwen3-asr-1.7b-lora`](https://huggingface.co/Pd172944/mathspeech-qwen3-asr-1.7b-lora) on the Hugging Face Hub (LoRA adapter + model card + eval metrics; currently private).
+
 **v2 (this version):** model upgraded from Whisper to **Qwen3-ASR-1.7B** (released June 2026, Apache-2.0, Transformers-native), a **compositional grammar** + extra voices/augmentation for generalization, and an **on-the-fly LaTeX → Unicode text renderer** so output looks right even without a TeX engine.
 
 | Spoken | Generic ASR (Qwen3-ASR zero-shot) | **MathSpeech** (LaTeX) | **MathSpeech** (plain text, rendered on the fly) |
@@ -101,7 +103,7 @@ Single-GPU by design (`CUDA_VISIBLE_DEVICES` defaults to 0). Paths come from `DA
 * **No real training data survived licensing/filters** in this run. Datasets with undeclared licences are never trained on.
 * One LaTeX convention; capitalization and some structure are inherently ambiguous from audio.
 * Rule normalizer is untested on long natural lecture sentences (no span-level math detection yet).
-* Weights (≈160 MB LoRA adapter) are not committed to git; `run_all.sh` regenerates them (25 min).
+* Weights (≈160 MB LoRA adapter) are not committed to git: download from the Hub link above, or `run_all.sh` regenerates them (25 min).
 
 ## Future work
 Span-level math detection for lecture audio · LLM-composed spoken math once API credit is available (verify with two independent passes) · second TTS engine + room/noise simulation · real, permissively-licensed lecture data with a human-checked test set · constrained decoding (balanced braces, valid commands) · clean model-vs-data ablation · publish adapters to the HF Hub.
